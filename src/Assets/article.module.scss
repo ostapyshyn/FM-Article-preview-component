@@ -2,14 +2,112 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
 
   article {
     max-width: 730px;
-
+    box-shadow: 0px 40px 40px -10px rgba(201, 213, 225, 0.503415);
+    border-radius: 10px;
     display: flex;
+    // overflow: hidden;
+
+    .info {
+      max-width: 445px;
+      background-color: #fff;
+      padding: 32px 40px;
+
+      h1 {
+        font-family: 'Manrope';
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.25px;
+        color: var(--very-dark-grayish-blue);
+        margin-bottom: 12px;
+      }
+
+      p {
+        font-family: 'Manrope';
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.121875px;
+        color: var(--desaturated-dark-blue);
+        margin-bottom: 20px;
+      }
+      .share {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .popup {
+          height: 67px;
+          width: 248px;
+          background: var(--very-dark-grayish-blue);
+          box-shadow: 0px 10px 10px rgba(201, 213, 225, 0.503415);
+          border-radius: 10px;
+          padding: 18px;
+          box-sizing: border-box;
+          position: absolute;
+          top: -84px;
+          left: 214px;
+          margin: 10px 0;
+          display: flex;
+          flex-direction: column;
+          overflow-y: auto;
+        }
+
+        img {
+          width: 40px;
+          height: 40px;
+          display: block;
+          border-radius: 50%;
+        }
+        .user {
+          display: flex;
+          flex-direction: column;
+          margin-left: 16px;
+
+          h2 {
+            font-family: 'Manrope';
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 20px;
+            letter-spacing: 0.121875px;
+            color: var(--very-dark-grayish-blue);
+          }
+
+          p {
+            font-family: 'Manrope';
+
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
+            letter-spacing: 0.121875px;
+            color: var(--grayish-blue);
+            margin-bottom: 0px;
+          }
+        }
+
+        .share_button {
+          background-color: var(--light-grayish-blue);
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          margin-left: auto;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+    display: block;
   }
 }
