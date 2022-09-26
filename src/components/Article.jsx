@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import drawer from '../Assets/img/drawers.jpg';
 import avatar from '../Assets/img/avatar-michelle.jpg';
 import { ReactComponent as Share } from '../Assets/svg/icon-share.svg';
+import { ReactComponent as Facebook } from '../Assets/svg/icon-facebook.svg';
+import { ReactComponent as Twitter } from '../Assets/svg/icon-twitter.svg';
+import { ReactComponent as Pinterest } from '../Assets/svg/icon-pinterest.svg';
+
+import useOutsideClick from '../hooks/useOnClickOutside';
 
 import styles from '../Assets/article.module.scss';
 
 const Article = () => {
   const [visiblePopup, setVisiblePopup] = useState(false);
+
+  const ref = useOutsideClick(() => setVisiblePopup(false));
 
   return (
     <main>
@@ -32,8 +39,22 @@ const Article = () => {
               <h2>Michelle Appleton</h2>
               <p>28 Jun 2020</p>
             </div>
-            {visiblePopup && <div className={styles.popup}>SHARE</div>}
-            <div className={styles.share_button} onClick={() => setVisiblePopup(true)}>
+
+            {visiblePopup && (
+              <div className={styles.popup}>
+                <span>SHARE</span>
+                <div className={styles.icons}>
+                  <Facebook />
+                  <Twitter />
+                  <Pinterest />
+                </div>
+              </div>
+            )}
+
+            <div
+              ref={ref}
+              className={visiblePopup ? styles.share_button__light : styles.share_button}
+              onClick={() => setVisiblePopup(!visiblePopup)}>
               <Share />
             </div>
           </div>

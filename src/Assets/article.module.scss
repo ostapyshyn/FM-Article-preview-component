@@ -1,3 +1,5 @@
+@import '../index.scss';
+
 main {
   width: 100%;
   display: flex;
@@ -12,10 +14,25 @@ main {
     display: flex;
     // overflow: hidden;
 
+    @include mq(745px) {
+      flex-direction: column;
+      // align-items: center;
+    }
+
     .info {
       max-width: 445px;
       background-color: #fff;
       padding: 32px 40px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      @include mq(745px) {
+        max-width: 745px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+        padding-inline: 32px;
+        padding-bottom: 20px;
+      }
 
       h1 {
         font-family: 'Manrope';
@@ -34,27 +51,72 @@ main {
         letter-spacing: 0.121875px;
         color: var(--desaturated-dark-blue);
         margin-bottom: 20px;
+
+        @include mq(745px) {
+          margin-bottom: 32px;
+        }
       }
       .share {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         position: relative;
 
         .popup {
-          height: 67px;
-          width: 248px;
           background: var(--very-dark-grayish-blue);
           box-shadow: 0px 10px 10px rgba(201, 213, 225, 0.503415);
           border-radius: 10px;
-          padding: 18px;
+          padding: 18px 36px;
           box-sizing: border-box;
           position: absolute;
           top: -84px;
-          left: 214px;
-          margin: 10px 0;
+          left: 225px;
+
           display: flex;
-          flex-direction: column;
-          overflow-y: auto;
+          align-items: center;
+
+          font-family: 'Manrope';
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 20px;
+          letter-spacing: 5px;
+          color: var(--grayish-blue);
+
+          @include mq(745px) {
+            bottom: -20px;
+            left: -32px;
+            right: -32px;
+            top: -4px;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+          }
+
+          span {
+            margin-right: 16px;
+          }
+
+          .icons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+          }
+        }
+
+        .popup::after {
+          position: absolute;
+          top: 80%;
+          left: 40%;
+          content: '';
+          width: 0;
+          height: 0;
+          border-top: solid 25px var(--very-dark-grayish-blue);
+          border-left: solid 25px transparent;
+          border-right: solid 25px transparent;
+          z-index: 3;
+
+          @include mq(745px) {
+            content: normal;
+          }
         }
 
         img {
@@ -95,10 +157,46 @@ main {
           height: 32px;
           border-radius: 50%;
           margin-left: auto;
+          cursor: pointer;
 
           display: flex;
           align-items: center;
           justify-content: center;
+
+          @include mq(745px) {
+            z-index: 1;
+            position: relative;
+            top: 10px;
+          }
+
+          svg {
+            color: red;
+          }
+        }
+
+        .share_button__light {
+          cursor: pointer;
+          background-color: var(--desaturated-dark-blue);
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          margin-left: auto;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include mq(745px) {
+            z-index: 1;
+            position: relative;
+            top: 10px;
+          }
+
+          svg {
+            path {
+              fill: white;
+            }
+          }
         }
       }
     }
@@ -109,5 +207,13 @@ main {
     object-fit: cover;
     height: 100%;
     display: block;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    @include mq(745px) {
+      width: 100%;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 0;
+    }
   }
 }
