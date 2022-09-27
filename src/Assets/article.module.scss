@@ -61,6 +61,7 @@ main {
         align-items: center;
         justify-content: space-between;
         position: relative;
+        transition: all 0.3s ease-in-out;
 
         .popup {
           background: var(--very-dark-grayish-blue);
@@ -81,6 +82,7 @@ main {
           line-height: 20px;
           letter-spacing: 5px;
           color: var(--grayish-blue);
+          transition: all 0.3s ease-in-out;
 
           @include mq(745px) {
             bottom: -20px;
@@ -99,6 +101,13 @@ main {
             display: flex;
             gap: 16px;
             align-items: center;
+
+            svg {
+              cursor: pointer;
+              &:hover {
+                transform: scale(1.2);
+              }
+            }
           }
         }
 
@@ -169,6 +178,10 @@ main {
             top: 10px;
           }
 
+          &:active {
+            transform: scale(0.98);
+          }
+
           svg {
             color: red;
           }
@@ -190,6 +203,10 @@ main {
             z-index: 1;
             position: relative;
             top: 10px;
+          }
+
+          &:active {
+            transform: scale(0.98);
           }
 
           svg {
